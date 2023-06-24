@@ -1,15 +1,13 @@
-main {
+.main {
     height: 100%;
     margin: 5rem;
 }
 
 .text-boxes {
-    // margin:100px;
     display: grid;
     grid-template-columns: 1fr 3px 1fr;
-    grid-template-rows: 1fr 14% 14% 14% 14% 14% 14% 1fr;
-    grid-template-areas:" .  I  . "
-                        " A  I  . "
+    grid-template-rows: 1fr 14% 14% 14% 14% 14% 1fr;
+    grid-template-areas:" A  I  . "
                         " A  I  B "
                         " .  I  B "
                         " C  I  B "
@@ -77,4 +75,18 @@ main {
         align-items: center;
         align-self: center;
     }
+
+}
+
+.first-content-item {
+    align-self: start;
+}
+
+.last-content-item {
+    align-self: end;
+}
+
+.left {
+    // text-align: end;
+    justify-self: end;
 }
