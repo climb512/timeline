@@ -1,3 +1,7 @@
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
 .main {
     height: 100%;
     margin: 5rem;
@@ -6,7 +10,7 @@
 .text-boxes {
     display: grid;
     grid-template-columns: 1fr 3px 1fr;
-    grid-template-rows: 1fr 14% 14% 14% 14% 14% 1fr;
+    grid-template-rows: repeat(7, max-content);
     grid-template-areas:" A  I  . "
                         " A  I  B "
                         " .  I  B "
@@ -67,7 +71,9 @@
 
 .content {
     height: min-content;
-    border: 1px solid black;
+    // border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     display: flex;
 
     p {
@@ -76,6 +82,11 @@
         align-self: center;
     }
 
+    img {
+        padding: 5px;
+        object-fit:cover;
+        border-radius: 9px;
+    }
 }
 
 .first-content-item {
@@ -89,4 +100,35 @@
 .left {
     // text-align: end;
     justify-self: end;
+}
+
+@media screen and (max-width:600px) {
+    .main {
+        margin: 0;
+        padding: 0;
+    }
+
+    .content {
+        display: grid;
+        align-items: center;
+        height:auto;
+
+        img {
+            padding: 0;
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+
+    .h-line {
+        min-width: 10px;
+    }
+
+    .left > .item-number {
+        right: calc(50% - 48px);
+    }
+
+    .right > .item-number {
+        right: calc(50% );
+    }
 }
