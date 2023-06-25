@@ -182,7 +182,7 @@ body {
   .content img {
     padding: 12px;
     width: 100%;
-    border-radius: 0;
+    border-radius: 15px;
   }
   .h-line-after, .h-line-before {
     min-width: 32px;
@@ -230,7 +230,7 @@ body {
   }
   .content img {
     width: 100%;
-    border-radius: 0;
+    border-radius: 9px;
   }
   .right > .h-line-before, .left > .h-line-before {
     display: block;

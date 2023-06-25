@@ -211,7 +211,7 @@ body {
         img {
             padding: 12px;
             width: 100%;
-            border-radius: 0;
+            border-radius: 15px;
         }
     }
 
@@ -268,7 +268,6 @@ body {
         justify-content: center;
     }
 
-
     .content {
         width: clamp(180px, 100% , 400px);
         display: flex;
@@ -282,7 +281,7 @@ body {
         img {
             // padding: 0;
             width: 100%;
-            border-radius: 0;
+            border-radius: 9px;
         }
     }
 
