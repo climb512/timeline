@@ -100,7 +100,7 @@ body {
   height: min-content;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.59);
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: shadow-grey;
   display: flex;
 }
 .content p {
@@ -117,6 +117,7 @@ body {
 
 .content:hover, .content ~ .item-number:hover, .content:has(~ .item-number:hover) {
   border-color: rgb(187, 3, 3);
+  box-shadow: rgba(126, 20, 20, 0.3) 0px 1px 2px 0px, rgba(126, 20, 20, 0.15) 0px 1px 3px 1px;
 }
 
 .content:hover ~ .item-number, .item-number:hover {
