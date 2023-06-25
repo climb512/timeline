@@ -140,7 +140,7 @@ body {
     height: min-content;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.59);
-    box-shadow: shadow-grey;
+    box-shadow: $shadow-grey;
     display: flex;
 
     p {
