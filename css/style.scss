@@ -12,14 +12,30 @@ body {
 .text-boxes {
     display: grid;
     grid-template-columns: 1fr 3px 1fr;
-    grid-template-rows: repeat(7, max-content);
-    grid-template-areas: " A  I  . "
-        " A  I  B "
-        " .  I  B "
-        " C  I  B "
-        " C  I  . "
-        " C  I  D "
-        " .  I  D ";
+    grid-template-rows: repeat(23, max-content);
+    grid-template-areas:" A  I  . "
+                        " A  I  B "
+                        " .  I  B "
+                        " C  I  B "
+                        " C  I  . "
+                        " C  I  D "
+                        " .  I  D "
+                        " E  I  D "
+                        " E  I  . "
+                        " E  I  F "
+                        " .  I  F "
+                        " G  I  F "
+                        " G  I  . "
+                        " G  I  H "
+                        " .  I  H "
+                        " J  I  H "
+                        " J  I  . "
+                        " J  I  K "
+                        " .  I  K "
+                        " L  I  K "
+                        " L  I  . "
+                        " L  I  M "
+                        " .  I  M ";;
 }
 
 .grouper {
@@ -41,6 +57,38 @@ body {
 
 .grouper:nth-child(4) {
     grid-area: D;
+}
+
+.grouper:nth-child(5) {
+    grid-area: E;
+}
+
+.grouper:nth-child(6) {
+    grid-area: F;
+}
+
+.grouper:nth-child(7) {
+    grid-area: G;
+}
+
+.grouper:nth-child(8) {
+    grid-area: H;
+}
+
+.grouper:nth-child(9) {
+    grid-area: J;
+}
+
+.grouper:nth-child(10) {
+    grid-area: K;
+}
+
+.grouper:nth-child(11) {
+    grid-area: L;
+}
+
+.grouper:nth-child(12) {
+    grid-area: M;
 }
 
 .h-line {
@@ -112,10 +160,12 @@ body {
     background-color: $clr-red;
 }
 
+/* aligns the top div with the vertical line */
 .first-content-item {
     align-self: start;
 }
 
+/* aligns the bottom div with the vertical line */
 .last-content-item {
     align-self: end;
 }
