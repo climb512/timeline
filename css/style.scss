@@ -1,3 +1,5 @@
+$clr-red: rgb(187, 3, 3);
+
 body {
     font-family: 'PT Sans', sans-serif;
 }
@@ -11,40 +13,18 @@ body {
     display: grid;
     grid-template-columns: 1fr 3px 1fr;
     grid-template-rows: repeat(7, max-content);
-    grid-template-areas:" A  I  . "
-                        " A  I  B "
-                        " .  I  B "
-                        " C  I  B "
-                        " C  I  . "
-                        " C  I  D "
-                        " .  I  D ";
+    grid-template-areas: " A  I  . "
+        " A  I  B "
+        " .  I  B "
+        " C  I  B "
+        " C  I  . "
+        " C  I  D "
+        " .  I  D ";
 }
 
 .grouper {
     display: flex;
     align-items: center;
-}
-
-.h-line {
-    background-color: black;
-    min-width: 50px;
-    height: 3px;
-}
-
-.item-number {
-    display: grid;
-    text-align: end;
-    justify-content: center;
-    align-items:center;
-    min-height: 42px;
-    min-width: 42px;
-    background-color: white;
-    border: 3px solid purple;
-    border-radius: 999px;
-    aspect-ratio: 1;
-    position: absolute;
-    right: calc(50% - 21px);
-    font-size: 1.5rem;
 }
 
 .grouper:nth-child(1) {
@@ -63,6 +43,28 @@ body {
     grid-area: D;
 }
 
+.h-line {
+    background-color: black;
+    min-width: 50px;
+    height: 3px;
+}
+
+.item-number {
+    display: grid;
+    text-align: end;
+    justify-content: center;
+    align-items: center;
+    min-height: 42px;
+    min-width: 42px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 999px;
+    aspect-ratio: 1;
+    position: absolute;
+    right: calc(50% - 21px);
+    font-size: 1.5rem;
+}
+
 .vertical-line {
     height: 100%;
     border-left: 3px solid rgb(0, 0, 0);
@@ -71,9 +73,11 @@ body {
 
 .content {
     height: min-content;
-    // border: 1px solid black;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    // border: 1px solid rgba(0, 0, 0, 0.19);
+    // box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border: 1px solid rgba(0, 0, 0, 0.59);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     display: flex;
 
     p {
@@ -84,9 +88,28 @@ body {
 
     img {
         padding: 5px;
-        object-fit:cover;
+        object-fit: cover;
         border-radius: 9px;
     }
+}
+
+.content:hover, .content ~ .item-number:hover, .content:has(~ .item-number:hover)  {
+    border-color: $clr-red;
+}
+
+.content:hover ~ .item-number, .item-number:hover {
+    border-color: $clr-red;
+    color: $clr-red;
+}
+
+/* ".content:hover ~ .h-line" only selects the FOLLOWING siblings, */
+/* ".h-line:has(~ .content:hover)" only selects the PRECEEDING siblings, */
+.content:hover ~ .h-line, .h-line:has(~ .content:hover) {
+    background-color: $clr-red;
+}
+
+.item-number:hover ~ .h-line, .h-line:has(~ .item-number:hover) {
+    background-color: $clr-red;
 }
 
 .first-content-item {
@@ -102,33 +125,39 @@ body {
     justify-self: end;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:940px) {
     .main {
-        margin: 0;
+        margin: 2px;
         padding: 0;
     }
 
     .content {
         display: grid;
         align-items: center;
-        height:auto;
+        height: auto;
+        font-size: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.59);
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
         img {
-            padding: 0;
+            // padding: 0;
             width: 100%;
             border-radius: 0;
         }
     }
 
     .h-line {
-        min-width: 10px;
+        min-width: 16px;
     }
 
-    .left > .item-number {
-        right: calc(50% - 48px);
+    .item-number {
+        display: flex;
+        min-height: 22px;
+        min-width: 22px;
+        font-size: 1rem;
+        border-width: 1px;
+        right: calc(50% - 10px);
+        // aspect-ratio: 0;
     }
 
-    .right > .item-number {
-        right: calc(50% );
-    }
 }

@@ -19,28 +19,6 @@ body {
   align-items: center;
 }
 
-.h-line {
-  background-color: black;
-  min-width: 50px;
-  height: 3px;
-}
-
-.item-number {
-  display: grid;
-  text-align: end;
-  justify-content: center;
-  align-items: center;
-  min-height: 42px;
-  min-width: 42px;
-  background-color: white;
-  border: 3px solid purple;
-  border-radius: 999px;
-  aspect-ratio: 1;
-  position: absolute;
-  right: calc(50% - 21px);
-  font-size: 1.5rem;
-}
-
 .grouper:nth-child(1) {
   grid-area: A;
 }
@@ -57,6 +35,28 @@ body {
   grid-area: D;
 }
 
+.h-line {
+  background-color: black;
+  min-width: 50px;
+  height: 3px;
+}
+
+.item-number {
+  display: grid;
+  text-align: end;
+  justify-content: center;
+  align-items: center;
+  min-height: 42px;
+  min-width: 42px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 999px;
+  aspect-ratio: 1;
+  position: absolute;
+  right: calc(50% - 21px);
+  font-size: 1.5rem;
+}
+
 .vertical-line {
   height: 100%;
   border-left: 3px solid rgb(0, 0, 0);
@@ -67,7 +67,8 @@ body {
   height: -moz-min-content;
   height: min-content;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: 1px solid rgba(0, 0, 0, 0.59);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   display: flex;
 }
 .content p {
@@ -82,6 +83,25 @@ body {
   border-radius: 9px;
 }
 
+.content:hover, .content ~ .item-number:hover, .content:has(~ .item-number:hover) {
+  border-color: rgb(187, 3, 3);
+}
+
+.content:hover ~ .item-number, .item-number:hover {
+  border-color: rgb(187, 3, 3);
+  color: rgb(187, 3, 3);
+}
+
+/* ".content:hover ~ .h-line" only selects the FOLLOWING siblings, */
+/* ".h-line:has(~ .content:hover)" only selects the PRECEEDING siblings, */
+.content:hover ~ .h-line, .h-line:has(~ .content:hover) {
+  background-color: rgb(187, 3, 3);
+}
+
+.item-number:hover ~ .h-line, .h-line:has(~ .item-number:hover) {
+  background-color: rgb(187, 3, 3);
+}
+
 .first-content-item {
   align-self: start;
 }
@@ -94,28 +114,32 @@ body {
   justify-self: end;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 940px) {
   .main {
-    margin: 0;
+    margin: 2px;
     padding: 0;
   }
   .content {
     display: grid;
     align-items: center;
     height: auto;
+    font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.59);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   }
   .content img {
-    padding: 0;
     width: 100%;
     border-radius: 0;
   }
   .h-line {
-    min-width: 10px;
+    min-width: 16px;
   }
-  .left > .item-number {
-    right: calc(50% - 48px);
-  }
-  .right > .item-number {
-    right: 50%;
+  .item-number {
+    display: flex;
+    min-height: 22px;
+    min-width: 22px;
+    font-size: 1rem;
+    border-width: 1px;
+    right: calc(50% - 10px);
   }
 }/*# sourceMappingURL=style.css.map */
