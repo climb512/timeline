@@ -37,13 +37,14 @@ body {
                         " L  I  K "
                         " L  I  . "
                         " L  I  M "
-                        " .  I  M ";;
+                        " .  I  M ";
 }
 
 .grouper {
     display: flex;
     align-items: center;
 }
+
 
 .grouper:nth-child(1) {
     grid-area: A;
@@ -93,10 +94,24 @@ body {
     grid-area: M;
 }
 
-.h-line {
+.h-line-after, .h-line-before {
     background-color: black;
     min-width: 50px;
     height: 3px;
+}
+
+/* Make h-lines hidden as needed */
+.left > .h-line-before {
+    display:none;
+}
+.right > .h-line-after {
+    display:none;
+}
+.left > .h-line-after {
+    display:block;
+}
+.right > .h-line-before {
+    display:block;
 }
 
 .item-number {
@@ -107,7 +122,7 @@ body {
     min-height: 42px;
     min-width: 42px;
     background-color: white;
-    border: 3px solid black;
+    border: 2px solid black;
     border-radius: 999px;
     aspect-ratio: 1;
     position: absolute;
@@ -124,8 +139,6 @@ body {
 .content {
     height: min-content;
     border-radius: 5px;
-    // border: 1px solid rgba(0, 0, 0, 0.19);
-    // box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     border: 1px solid rgba(0, 0, 0, 0.59);
     box-shadow: shadow-grey;
     display: flex;
@@ -157,11 +170,11 @@ body {
 
 /* ".content:hover ~ .h-line" only selects the FOLLOWING siblings, */
 /* ".h-line:has(~ .content:hover)" only selects the PRECEEDING siblings, */
-.content:hover ~ .h-line, .h-line:has(~ .content:hover) {
+.content:hover ~ .h-line-after, .content:hover ~ .h-line-before, .h-line-after:has(~ .content:hover), .h-line-before:has(~ .content:hover) {
     background-color: $clr-red;
 }
 
-.item-number:hover ~ .h-line, .h-line:has(~ .item-number:hover) {
+.item-number:hover ~ .h-line-after, .h-line-after:has(~ .item-number:hover), .item-number:hover ~ .h-line-before, .h-line-before:has(~ .item-number:hover) {
     background-color: $clr-red;
 }
 
@@ -180,9 +193,10 @@ body {
     justify-self: end;
 }
 
-@media screen and (max-width:940px) {
+// small desktop
+@media screen and (min-width:769px) and (max-width:1024px) {
     .main {
-        margin: 2px;
+        margin: 8px;
         padding: 0;
     }
 
@@ -190,7 +204,79 @@ body {
         display: grid;
         align-items: center;
         height: auto;
-        font-size: 14px;
+        font-size: 1rem;
+        border: 1px solid rgba(0, 0, 0, 0.59);
+        box-shadow: $shadow-grey;
+
+        img {
+            padding: 12px;
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+
+    .h-line-after, .h-line-before {
+        min-width: 32px;
+    }
+
+    .item-number {
+        display: flex;
+        min-height: 36px;
+        min-width: 36px;
+        font-size: 1.3rem;
+        right: calc(50% - 18px);
+         aspect-ratio: 0;
+    }
+}
+
+// phone
+@media screen and (max-width:768px) {
+    .main {
+        margin: 40px;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding: 0;
+    }
+
+    .text-boxes {
+        display : flex;
+        flex-direction: column;
+    }
+
+    .text-boxes {
+        display: grid;
+        row-gap: 2rem;
+        grid-template-columns: 3px 1fr;
+        // grid-template-rows: repeat(12, max-content);
+        grid-template-areas:" I  A"
+                            " I  B "
+                            " I  C "
+                            " I  D "
+                            " I  E "
+                            " I  F "
+                            " I  G "
+                            " I  H "
+                            " I  J "
+                            " I  K "
+                            " I  L "
+                            " I  M ";
+    }
+
+    .grouper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .content {
+        width: clamp(180px, 100% , 400px);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        height: auto;
+        font-size: 1rem;
         border: 1px solid rgba(0, 0, 0, 0.59);
         box-shadow: $shadow-grey;
 
@@ -201,18 +287,24 @@ body {
         }
     }
 
-    .h-line {
-        min-width: 16px;
+    .right > .h-line-before, .left > .h-line-before {
+        display:block;
+    }
+    .right > .h-line-after, .left > .h-line-after {
+        display:none;
+    }
+
+    .h-line-after, .h-line-before {
+        min-width: 36px;
+        width: 36%;
     }
 
     .item-number {
         display: flex;
-        min-height: 22px;
-        min-width: 22px;
-        font-size: 1rem;
-        border-width: 1px;
-        right: calc(50% - 10px);
-        // aspect-ratio: 0;
+        height: 22px;
+        width: 22px;
+        font-size: 1.5rem;
+        left: 20px;
     }
 
 }
