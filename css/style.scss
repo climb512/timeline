@@ -1,6 +1,6 @@
 $clr-red: rgb(187, 3, 3);
-$shadow-grey: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-$shadow-red: rgba(126, 20, 20, 0.3) 0px 1px 2px 0px, rgba(126, 20, 20, 0.15) 0px 1px 3px 1px;
+$box-shadow-grey: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+$box-shadow-red: rgba(126, 20, 20, 0.3) 0px 1px 2px 0px, rgba(126, 20, 20, 0.15) 0px 1px 3px 1px;
 
 body {
     font-family: 'PT Sans', sans-serif;
@@ -140,7 +140,7 @@ body {
     height: min-content;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.59);
-    box-shadow: $shadow-grey;
+    box-shadow: $box-shadow-grey;
     display: flex;
 
     p {
@@ -158,7 +158,7 @@ body {
 
 .content:hover, .content ~ .item-number:hover, .content:has(~ .item-number:hover)  {
     border-color: $clr-red;
-    box-shadow: $shadow-red;
+    box-shadow: $box-shadow-red;
 
     
 }
@@ -206,7 +206,7 @@ body {
         height: auto;
         font-size: 1rem;
         border: 1px solid rgba(0, 0, 0, 0.59);
-        box-shadow: $shadow-grey;
+        box-shadow: $box-shadow-grey;
 
         img {
             padding: 12px;
@@ -276,7 +276,7 @@ body {
         height: auto;
         font-size: 1rem;
         border: 1px solid rgba(0, 0, 0, 0.59);
-        box-shadow: $shadow-grey;
+        box-shadow: $box-shadow-grey;
 
         img {
             // padding: 0;
